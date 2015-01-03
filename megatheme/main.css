@@ -824,7 +824,7 @@ perspective effects (not including the modals and the overlay).
     position: relative;
     display: block;
     float: left;
-    margin: 0 10px;
+    margin: 0 8px;
     width: 12px;
     height: 12px;
     cursor: pointer;
