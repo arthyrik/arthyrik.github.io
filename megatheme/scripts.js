@@ -364,10 +364,12 @@
             var popupElement = popupData.element || '#lp-pom-block-489',
                 $body = $('body'),
                 popupTriggers = popupData.triggers || [],
+                hideTriggers = popupData.hideTriggers || [],
                 $el = $(popupElement).appendTo($('#lp-pom-root')),
                 animation = popupData.animation || '3dSign',
                 showOnLeave = popupData.showOnLeave === 'yes',
                 $triggers = $(popupTriggers.join(', ')),
+                $hideTriggers = $(hideTriggers.join(', ')),
                 closeButton = popupData.closeButton || '#lp-code-496',
                 $closeButton = $(closeButton),
                 $shade = $('.md-overlay'),
@@ -494,6 +496,13 @@
                     e.preventDefault();
 
                     showPopup();
+                });
+            }
+
+            if ($hideTriggers.length) {
+                $hideTriggers.on('click', function(e) {
+                    e.preventDefault();
+                    hidePopup();
                 });
             }
 
