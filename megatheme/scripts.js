@@ -377,50 +377,50 @@
 
             $shade = $shade.length ? $shade : $('<div class="md-overlay"/>').insertBefore($el);
 
-            switch (animation) {
-                case 'fadeInScale':
+            switch (animation.toUpperCase()) {
+                case 'FADEINSCALE':
                     animation = 1;
                     break;
-                case 'slideInRight':
+                case 'SLIDEINRIGHT':
                     animation = 2;
                     break;
-                case 'slideInBottom':
+                case 'SLIDEINBOTTOM':
                     animation = 3;
                     break;
-                case 'newspaper':
+                case 'NEWSPAPER':
                     animation = 4;
                     break;
-                case 'fall':
+                case 'FALL':
                     animation = 5;
                     break;
-                case 'sideFall':
+                case 'SIDEFALL':
                     animation = 6;
                     break;
-                case 'stickyUp':
+                case 'STICKYUP':
                     animation = 7;
                     break;
-                case '3dFlipHorizontal':
+                case '3DFLIPHORIZONTAL':
                     animation = 8;
                     break;
-                case '3dFlipVertical':
+                case '3DFLIPVERTICAL':
                     animation = 9;
                     break;
-                case '3dSign':
+                case '3DSIGN':
                     animation = 10;
                     break;
-                case 'superScaled':
+                case 'SUPERSCALED':
                     animation = 11;
                     break;
-                case 'justMe':
+                case 'JUSTME':
                     animation = 12;
                     break;
-                case '3dSlid':
+                case '3DSLID':
                     animation = 13;
                     break;
-                case '3dRotateBottom':
+                case '3DROTATEBOTTOM':
                     animation = 14;
                     break;
-                case '3dRotateInLeft':
+                case '3DROTATEINLEFT':
                     animation = 15;
                     break;
             }
