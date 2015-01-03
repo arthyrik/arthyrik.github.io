@@ -518,11 +518,13 @@
             });
 
 
-            $(document).ajaxSuccess(function(e, xhr) {
-                if (xhr.url.indexOf($form.attr('action')) === 0) {
-                    hidePopup();
-                }
-            });
+            if ($form.length) {
+                $(document).ajaxSuccess(function (e, xhr) {
+                    if (xhr.url.indexOf($form.attr('action')) === 0) {
+                        hidePopup();
+                    }
+                });
+            }
         }
 
         $(function() {
