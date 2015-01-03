@@ -370,8 +370,8 @@
                 $triggers = $(popupTriggers.join(', ')),
                 closeButton = popupData.closeButton || '#lp-code-496',
                 $closeButton = $(closeButton),
-                form = popupData.form || '#lp-pom-form-24',
-                $form = $(form + ' form'),
+                formContainerId = popupData.formContainerId || '#lp-pom-form-24',
+                $form = $(formContainerId + ' form'),
                 $shade = $('.md-overlay'),
                 leavePopupInterval = popupData.showOnLeaveInterval || 2,
                 nameSpace = makeNamespace();
@@ -517,8 +517,11 @@
                 }
             });
 
-            $form.submit(function() {
-                hidePopup();
+
+            $(document).ajaxSuccess(function(e, xhr) {
+                if (xhr.url.indexOf($form.attr('action')) === 0) {
+                    hidePopup();
+                }
             });
         }
 
