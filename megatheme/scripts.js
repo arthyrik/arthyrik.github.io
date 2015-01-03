@@ -519,8 +519,8 @@
 
 
             if ($form.length) {
-                lp.jQuery(document).ajaxSuccess(function (e, xhr) {
-                    if (xhr.url.indexOf($form.attr('action')) === 0) {
+                lp.jQuery(document).ajaxSuccess(function (e, xhr, settings) {
+                    if (settings.url.indexOf($form.attr('action')) === 0) {
                         hidePopup();
                     }
                 });
