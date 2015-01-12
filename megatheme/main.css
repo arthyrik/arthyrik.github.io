@@ -1390,11 +1390,3 @@ perspective effects (not including the modals and the overlay).
     -moz-transition: all 0.4s;
     transition: all 0.4s;
 }
-
-.yes-box:hover {
-    background-color: #a1bc3e !important;
-}
-
-.no-box:hover {
-    background-color: #ce5656 !important;
-}
