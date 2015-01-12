@@ -25,7 +25,10 @@ h1 {
 }
 
 .fa { cursor: pointer }
-.fa:hover {color: #D24634 !important;}
+
+.fa-chevron-left:hover, .fa-chevron-right:hover {
+    color: #D24634 !important;
+}
 
 .parallax-effect {
     -webkit-background-size: cover !important;
