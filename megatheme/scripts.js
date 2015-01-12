@@ -957,4 +957,16 @@
         $(wSettings.parallax.join(', ')).addClass('parallax-effect');
     });
 
+    /*==============================
+     Yes/No Boxes
+     ==============================*/
+
+    jQuery(function($) {
+        wSettings.yesBoxes = wSettings.yesBoxes || [];
+        wSettings.noBoxes = wSettings.noBoxes || [];
+
+        $(wSettings.yesBoxes.join(', ')).addClass('yes-box');
+        $(wSettings.noBoxes.join(', ')).addClass('no-box');
+    });
+
 })(window);
