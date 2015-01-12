@@ -24,7 +24,9 @@ h1 {
     box-shadow: 0 0 3px 1px rgba(0,0,0,.8);
 }
 
-.fa { cursor: pointer }
+.fa-chevron-left, .fa-chevron-right {
+    cursor: pointer
+}
 
 .fa-chevron-left:hover, .fa-chevron-right:hover {
     color: #D24634 !important;
