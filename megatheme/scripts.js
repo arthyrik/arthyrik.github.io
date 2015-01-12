@@ -771,14 +771,20 @@
                     })
                     .hover(function () {
                         $(this).stop(false, true).animate({
-                            top: '0',
-                            boxShadow: '0 5px 8px rgba(0, 0, 0, 0.25)'
-                        }, 'fast', 'easeInOutQuad');
+                            top: '0'
+                        }, 'fast', 'easeInOutQuad', function() {
+                            $slide.css({
+                                boxShadow: '0 5px 8px rgba(0, 0, 0, 0.25)'
+                            });
+                        });
                     }, function () {
                         $(this).stop(false, true).animate({
-                            top: '20px',
-                            boxShadow: 'none'
-                        }, 'fast', 'easeInOutQuad');
+                            top: '20px'
+                        }, 'fast', 'easeInOutQuad', function() {
+                            $slide.css({
+                                boxShadow: 'none'
+                            });
+                        });
                     })
                     .detach().appendTo($carouselContainer);
 
