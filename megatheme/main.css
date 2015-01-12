@@ -756,11 +756,6 @@ perspective effects (not including the modals and the overlay).
     transform: rotateY(180deg);
 }
 
-.flip-container, .front, .back {
-    width: 460px;
-    height: 307px;
-}
-
 /* flip speed goes here */
 .flipper {
     transition: 0.6s;

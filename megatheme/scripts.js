@@ -116,8 +116,6 @@
                     top     : headerHeight * -1
                 });
 
-                //$headerContainer.slideUp(0);
-
                 $win.scroll(function() {
                     var top = $win.scrollTop();
 
@@ -603,6 +601,10 @@
             }
 
             function goToSlide(index) {
+                if (_current === index) {
+                    return;
+                }
+
                 _current = index;
 
                 $($slides[_current])
@@ -690,6 +692,16 @@
                 var $flipper = $('<div class="flipper"/>').appendTo($cardContainer);
                 var $frontContainer = $('<div class="front"/>').appendTo($flipper);
                 var $backContainer = $('<div class="back"/>').appendTo($flipper);
+
+                $frontContainer.css({
+                    width   : width,
+                    height  : height
+                });
+
+                $backContainer.css({
+                    width   : width,
+                    height  : height
+                });
 
                 $cardContainer.appendTo('.lp-positioned-content').css({
                     position: 'absolute',
