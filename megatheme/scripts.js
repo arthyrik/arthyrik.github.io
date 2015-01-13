@@ -99,9 +99,9 @@
                 $headerContainer.addClass('header-with-shadow')
             }
 
-            $headerContainer.next().css({
-                paddingTop: headerHeight
-            });
+//            $headerContainer.next().css({
+//                paddingTop: headerHeight
+//            });
 
             $.each(headerElements, function( index, element ) {
                 var $element = $(element);
