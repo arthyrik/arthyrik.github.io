@@ -99,10 +99,6 @@
                 $headerContainer.addClass('header-with-shadow')
             }
 
-//            $headerContainer.next().css({
-//                paddingTop: headerHeight
-//            });
-
             $.each(headerElements, function( index, element ) {
                 var $element = $(element);
                 $element.detach().appendTo($headerContainer.children('.lp-pom-block-content'));
