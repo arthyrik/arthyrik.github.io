@@ -140,6 +140,8 @@
                     }
                 }).trigger('scroll');
             }
+
+            $headerContainer.show();
         }
 
         jQuery(function( $ ) {
