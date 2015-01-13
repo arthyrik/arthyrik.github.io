@@ -109,11 +109,8 @@
             });
 
             if (!isAlwaysVisible) {
-                $('body').css({
-                    marginTop: headerHeight * -1
-                });
                 $headerContainer.css({
-                    top     : headerHeight * -1
+                    top: headerHeight * -1
                 });
 
                 $win.scroll(function() {
@@ -139,6 +136,10 @@
                         }
                     }
                 }).trigger('scroll');
+            } else {
+                $('body').css({
+                    marginTop: headerHeight
+                });
             }
 
             $headerContainer.show();
