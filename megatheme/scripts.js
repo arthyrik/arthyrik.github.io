@@ -82,7 +82,7 @@
                 return;
 
             var headerContainer = wSettings.header.element,
-                headerElements = wSettings.header.headerElements,
+                headerElements = wSettings.header.headerElements || [],
                 showAt = wSettings.header.triggerPoint || 200,
                 isAlwaysVisible = wSettings.header.alwaysVisible === 'yes',
                 $headerContainer = $(headerContainer),
@@ -142,6 +142,7 @@
             }
 
             $headerContainer.show();
+            $(headerElements.join(',')).show();
         }
 
         jQuery(function( $ ) {
