@@ -601,21 +601,21 @@
             }
 
             function goToSlide(index) {
-                if (_current === index) {
+                var delta = index - _current;
+
+                if (delta === 0) {
                     return;
                 }
 
-                _current = index;
-
-                $($slides[_current])
-                    .stop(false, true)
-                    .css('left', slideWidth);
-
-                $.each($slides, function (index, $carousel) {
-                    $carousel.stop(false, true).animate({left: '-='+slideWidth+'px'}, 'fast', 'easeInOutQuad');
-                });
-
-                setNavActive();
+                if (delta > 0) {
+                    for (var i = 0; i < delta; i++) {
+                        $nextArrow.trigger('click');
+                    }
+                } else {
+                    for (var i = 0; i > delta; i--) {
+                        $previousArrow.trigger('click');
+                    }
+                }
             }
 
             generateNav();
@@ -638,30 +638,27 @@
             $previousArrow.on('click', function () {
                 _current = _current - 1 >= 0 ? _current - 1 : slidesCount - 1;
 
-                $($slides[_current])
-                    .stop(false, true)
-                    .css('left', '-'+slideWidth+'px');
+                $($slides[_current]).finish().css('left', '-' + slideWidth + 'px');
 
-                $.each($slides, function (index, $carousel) {
-                    $carousel
-                        .stop(false, true)
-                        .animate({left: '+='+slideWidth+'px'}, 'fast', 'easeInOutQuad');
+                $.each($slides, function (index, $slide) {
+                    $slide.finish().animate({left: '+='+ slideWidth + 'px'}, 'fast', 'easeInOutQuad');
                 });
 
                 setNavActive();
             });
 
             $nextArrow.on('click', function () {
-                _current = _current + 1 < slidesCount ? _current + 1 : 0;
+                var $currentSlide = $($slides[_current]);
 
-                $($slides[_current])
-                    .stop(false, true)
-                    .css('left',  slideWidth );
-
-                $.each($slides, function (index, $carousel) {
-                    $carousel.stop(false, true).animate({left: '-='+slideWidth+'px'}, 'fast', 'easeInOutQuad');
+                $.each($slides, function (index, $slide) {
+                    $slide.finish().animate({left: '-='+ slideWidth + 'px'}, 'fast', 'easeInOutQuad', function() {
+                        if ($slide[0] === $currentSlide[0]) {
+                            $currentSlide.css('left',  (slidesCount - 1) * slideWidth);
+                        }
+                    });
                 });
 
+                _current = _current + 1 < slidesCount ? _current + 1 : 0;
                 setNavActive();
             });
         }
