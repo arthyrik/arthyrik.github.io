@@ -24,11 +24,11 @@ h1 {
     box-shadow: 0 0 3px 1px rgba(0,0,0,.8);
 }
 
-.fa-chevron-left, .fa-chevron-right {
+.fa-chevron-left, .fa-chevron-right, .fa-times {
     cursor: pointer
 }
 
-.fa-chevron-left:hover, .fa-chevron-right:hover {
+.fa-chevron-left:hover, .fa-chevron-right:hover, .fa-times:hover {
     color: #D24634 !important;
 }
 
