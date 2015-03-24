@@ -137,6 +137,10 @@
                         }
                     }
                 }).trigger('scroll');
+            } else {
+                $('body').css({
+                    marginTop: 0
+                });
             }
         }
 
