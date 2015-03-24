@@ -141,7 +141,7 @@
         }
 
         jQuery(function( $ ) {
-            initStickyHeader();
+            //initStickyHeader();
 
         });
     })();
