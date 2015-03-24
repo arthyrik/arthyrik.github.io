@@ -1,6 +1,8 @@
 ;(function( window ) {
     var wSettings = window.wSettings = {};
 
+    $("[id$='-color-overlay']").hide();
+
     /*==============================
      Smooth Scroll
      ==============================*/
@@ -78,7 +80,7 @@
             $('body').css({
                 marginTop: 0
             });
-            
+
             if (!wSettings.header || !wSettings.header.element || !wSettings.header.headerElements)
                 return;
 
