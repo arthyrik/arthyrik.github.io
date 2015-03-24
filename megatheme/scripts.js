@@ -75,6 +75,10 @@
      ==============================*/
     (function() {
         function initStickyHeader() {
+            $('body').css({
+                marginTop: 0
+            });
+            
             if (!wSettings.header || !wSettings.header.element || !wSettings.header.headerElements)
                 return;
 
@@ -137,10 +141,6 @@
                         }
                     }
                 }).trigger('scroll');
-            } else {
-                $('body').css({
-                    marginTop: 0
-                });
             }
         }
 
