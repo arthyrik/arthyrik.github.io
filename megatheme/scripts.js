@@ -1,6 +1,7 @@
 ;(function( window ) {
     var wSettings = window.wSettings = {};
 
+    //hide unnecessary overlays rendered by Unbounce
     $("[id$='-color-overlay']").hide();
 
     /*==============================
