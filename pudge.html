@@ -42,7 +42,7 @@
                     var messages = socket.sendingQueue;
             
                     while(messages.length > 0) {
-                        var message = messages.pop();
+                        var message = messages.shift();
                         socket.send(message);
                         document.writeln('Sent to ' + socket.name + ': ' + message);
                     }
