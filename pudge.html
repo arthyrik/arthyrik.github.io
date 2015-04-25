@@ -1,82 +1,84 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-    <script>
-      (function(window, undefined) {
-
-        if (!window.WebSocket) {
-            document.writeln("Your browser does not support Websockets. (Use Chrome)");
-            return;
-        }
-    
-        var createSocket = function(name, url) {
-            var socket = new WebSocket(url);
-            socket.name = name;
-            socket.sendingQueue = [];
-    
-            socket.onopen = function() {
-                socketOpened(socket);
-            };
-    
-            socket.onmessage = function(e) {
-                messageReceived(socket.name, e.data);
-            };
-    
-            socket.onclose = function() {
-                socketClosed(socket.name);
-            };
-    
-            return socket;
-        };
-    
-        var sockets = [
-            createSocket('Socket1', 'ws://rws.pudge.io:8181/ws1'),
-            createSocket('Socket2', 'ws://rws.pudge.io:8181/ws2')
-        ];
-    
-        var socketOpened = function(socket) {
-            document.writeln(socket.name + ': opened.<br/>');
-    
-            var messages = socket.sendingQueue;
-    
-            while(messages.length > 0) {
-                var message = messages.pop();
-                socket.send(message);
-                document.writeln('Sent to ' + socket.name + ': ' + message);
-            }
-        };
-    
-        var messageReceived = function(socketName, message) {
-            document.writeln(socketName + ': message received - ' + message);
-    
-            for (var i = sockets.length - 1; i >= 0; i--) {
-                var socket = sockets[i];
-    
-                if (socket.name !== socketName) {
-                    if (socket.readyState === 1) {//check if socket already opened
+<head></head>
+<body>
+    <pre>
+        <script>
+            (function(window, undefined) {
+        
+                if (!window.WebSocket) {
+                    document.writeln("Your browser does not support Websockets. (Use Chrome)");
+                    return;
+                }
+            
+                var createSocket = function(name, url) {
+                    var socket = new WebSocket(url);
+                    socket.name = name;
+                    socket.sendingQueue = [];
+            
+                    socket.onopen = function() {
+                        socketOpened(socket);
+                    };
+            
+                    socket.onmessage = function(e) {
+                        messageReceived(socket.name, e.data);
+                    };
+            
+                    socket.onclose = function() {
+                        socketClosed(socket.name);
+                    };
+            
+                    return socket;
+                };
+            
+                var sockets = [
+                    createSocket('Socket1', 'ws://rws.pudge.io:8181/ws1'),
+                    createSocket('Socket2', 'ws://rws.pudge.io:8181/ws2')
+                ];
+            
+                var socketOpened = function(socket) {
+                    document.writeln(socket.name + ': opened.');
+            
+                    var messages = socket.sendingQueue;
+            
+                    while(messages.length > 0) {
+                        var message = messages.pop();
                         socket.send(message);
                         document.writeln('Sent to ' + socket.name + ': ' + message);
-                    } else {
-                        socket.sendingQueue.push(message);
                     }
-                }
-            };
-        };
-    
-        var socketClosed = function(socketName) {
-            document.writeln(socketName + ': closed.');
-    
-            for (var i = sockets.length - 1; i >= 0; i--) {
-                var socket = sockets[i];
-    
-                if (socket.name !== socketName) {
-                    socket.close();
-                }
-            };
-        };
-    
-    }(window));
-    </script>
-</head>
-<body/>
+                };
+            
+                var messageReceived = function(socketName, message) {
+                    document.writeln(socketName + ': message received - ' + message);
+            
+                    for (var i = sockets.length - 1; i >= 0; i--) {
+                        var socket = sockets[i];
+            
+                        if (socket.name !== socketName) {
+                            if (socket.readyState === 1) {//check if socket already opened
+                                socket.send(message);
+                                document.writeln('Sent to ' + socket.name + ': ' + message);
+                            } else {
+                                socket.sendingQueue.push(message);
+                            }
+                        }
+                    };
+                };
+            
+                var socketClosed = function(socketName) {
+                    document.writeln(socketName + ': closed.');
+            
+                    for (var i = sockets.length - 1; i >= 0; i--) {
+                        var socket = sockets[i];
+            
+                        if (socket.name !== socketName) {
+                            socket.close();
+                        }
+                    };
+                };
+            
+            }(window));
+        </script>
+    </pre>
+</body>
 </html>
