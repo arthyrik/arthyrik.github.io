@@ -62,7 +62,7 @@
                                 socket.sendingQueue.push(message);
                             }
                         }
-                    };
+                    }
                 };
             
                 var socketClosed = function(socketName) {
@@ -74,7 +74,7 @@
                         if (socket.name !== socketName) {
                             socket.close();
                         }
-                    };
+                    }
                 };
             
             }(window));
