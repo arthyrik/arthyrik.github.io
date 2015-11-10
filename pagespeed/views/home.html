@@ -1,0 +1,184 @@
+<section class="hero">
+    <div class="row hero-message">
+        <div class="small-10 small-centered column text-center">
+            <div class="title">
+                Start selling tickets in less than 2 minutes for as low as <strong>{{appFee}}/ticket</strong>!<br/>
+                <a class="button" ng-href="{{signupURL}}">Register Now</a>
+            </div>
+            <hero-slider slides="heroSlides" />
+        </div>
+    </div>
+</section>
+
+<section id="pricing" class="container pricing">
+    <div class="row title">
+        <div class="small-12 column">
+            <h3>A highly scalable web app for selling <span style="color: #4bc986;">conference</span> tickets.</h3>
+        </div>
+        <div class="small-12 column">
+            <p>We offer conference and seminar organisers a radically simple solution for online ticketing and
+            event registration.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-6 column">
+            <ul class="pricing-table">
+                <li class="title">Free Events</li>
+                <li class="price">FREE</li>
+                <!--<li class="bullet-item"><strong>Best-effort</strong> Support</li>-->
+                <!--<li class="cta-button"><a class="button" ng-href="{{signupURL}}">Get Started</a></li>-->
+                <li class="description">Free events are always FREE<br />All features included.</li>
+            </ul>
+        </div>
+
+        <div class="medium-6 column">
+            <ul class="pricing-table highlight">
+                <li class="title">Paid Events</li>
+                <li class="price">{{appFee}}<span> / ticket</span></li>
+                <!--<li class="cta-button"><a class="button" ng-href="{{signupURL}}">Get Started</a></li>-->
+                <li class="description">
+                    <strong>Note:</strong> For events taking place in Germany there is 19% VAT added on top of our commission fee.
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="large-12 column text-center">
+            <a class="button" ng-href="{{signupURL}}">Get Started</a>
+        </div>
+    </div>
+</section>
+
+<section id="features" class="container features">
+    <div class="row title">
+        <div class="small-12 column">
+            <h6>Features</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 column">
+            <ul class="features large-block-grid-3 medium-block-grid-2 small-block-grid-1 spacy">
+                <li>
+                    <h4>
+                        <i class="fa fa-heart right-spacer--xs"></i>Awesome Pricing
+                    </h4>
+
+                    <p>Affordable by design. We challenge you to find a better price for the services provided.
+                        <a ui-sref="home" scroll-to="#pricing" href="/">See our pricing!</a>
+                    </p>
+                </li>
+
+                <li>
+                    <h4>
+                        <i class="fa fa-bolt right-spacer--xs"></i>Blazing Fast App
+                    </h4>
+
+                    <p>
+                        Got popular? Don't worry we can handle it. Our High Availability (HA) cluster is ready for a massive load.
+                    </p>
+                </li>
+
+                <li>
+                    <h4>
+                        <i class="fa fa-usd right-spacer--xs"></i>Get Paid Instantly
+                    </h4>
+                    <p>
+                        We never hold your clients' money. Funds go directly from attendee to you.
+                        We rely on <a  ui-sref="questions.paymentProcessorsSupport">Stripe and PayPal</a>.
+                    </p>
+                </li>
+
+                <li>
+                    <h4>
+                        <i class="fa fa-database right-spacer--xs"></i>Constant Backups
+                    </h4>
+
+                    <p>
+                        All your data is redundantly saved across several data centers, located in different geographical locations.
+                    </p>
+                </li>
+
+                <li>
+                    <h4>
+                        <i class="fa fa-cubes right-spacer--xs"></i>Widget System
+                    </h4>
+                    <p>
+                        Sell tickets directly from your own website. It takes only a minute to integrate our storefront widget.
+                    </p>
+                </li>
+
+                <li>
+                    <h4>
+                        <i class="fa fa-bar-chart right-spacer--xs"></i>Real-time Stats
+                    </h4>
+
+                    <p>
+                        See how well you are doing by analysing comprehensive statistics. Better yet, all this in real-time!
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="large-12 column text-center">
+            <a ui-sref="features" scroll-to="#header" class="button">View Full Features List</a>
+        </div>
+    </div>
+</section>
+
+<section class="container cost-calculations">
+    <div class="row title">
+        <div class="small-12 column">
+            <h6>How much does it cost? Exactly.</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-8 column" ng-controller="CostCalculationsCtrl">
+            <p>
+                One of our objectives is to simplify ticket selling process down to essential features.
+                This reduces our costs and, as a consequence, we are able to offer such a good price.
+            </p>
+            <div ng-repeat="case in cases" style="margin-bottom: 20px;">
+                <h5>Case {{$index + 1}}: Ticket price of {{case.ticketPrice}}</h5>
+                <table style="margin-bottom: 3px;">
+                    <thead>
+                    <tr>
+                        <th>Ticket Price</th>
+                        <th>Esenio Fee</th>
+                        <th>Stripe Fee</th>
+                        <th>Total Fee</th>
+                        <th>You Receive</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td ng-bind="case.ticketPrice"/>
+                        <td ng-bind="case.ourFee"/>
+                        <td ng-bind="case.stripeFee" />
+                        <td ng-bind="case.totalFee"/>
+                        <td ng-bind="case.youReceive"/>
+                    </tr>
+                    </tbody>
+                </table>
+                <p style="font-size: 0.8em;margin-bottom:0;" ng-hide="case.note==null">* {{case.note}}</p>
+            </div>
+
+            <h5>When will my money become available?</h5>
+            <p>
+                Your customers' money go directly to your Stripe/PayPal account (we never hold your funds).
+                Once there, money can be withdrawn to a bank account in accordance with your transfer schedule
+                (see
+                    <a target="_blank" href="https://support.stripe.com/questions/how-long-do-transfers-take">Stripe docs</a> and/or
+                    <a target="_blank" href="https://www.paypal.com/us/webapps/helpcenter/helphub/article/?articleID=FAQ2316&m=SRE">PayPal docs</a>).
+            </p>
+        </div>
+
+        <div class="small-4 column">
+            <img src="https://s3.amazonaws.com/esenio/robo-calculator.png" alt="">
+        </div>
+    </div>
+</section>

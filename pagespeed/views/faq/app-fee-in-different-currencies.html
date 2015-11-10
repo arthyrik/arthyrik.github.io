@@ -1,0 +1,22 @@
+<div class="breadcrumb-container">
+    <div class="row">
+        <div class="large-12 column">
+            <nav class="breadcrumbs">
+                <a ui-sref="home">Home</a>
+                <a ui-sref="questions.main">Questions</a>
+                <a class="current" href="">Application fees in different currencies</a>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<section class="container">
+    <div class="row">
+        <div class="large-12 column">
+            <h1>Application fees in different currencies</h1>
+            <p ng-repeat="currency in currencies">
+                <span ng-bind="currency.code" /> - <span ng-bind="currency.name"/>
+            </p>
+        </div>
+    </div>
+</section>

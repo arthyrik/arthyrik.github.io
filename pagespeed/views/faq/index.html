@@ -1,0 +1,35 @@
+<div class="breadcrumb-container">
+    <div class="row">
+        <div class="large-12 column">
+            <nav class="breadcrumbs">
+                <a ui-sref="home">Home</a>
+                <a class="current" href="">Questions</a>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<section class="container">
+    <div class="row">
+        <div class="large-12 column">
+            <h2>Frequently Asked Questions</h2>
+            <ul style="padding: 15px 0 25px 15px;">
+                <li><a ui-sref="questions.paymentProcessorsSupport">Which payment processors does Esenio support?</a></li>
+                <li><a ui-sref="questions.currencySupport">Which currencies does Esenio support?</a></li>
+                <li><a ui-sref="questions.languageSupport">Which UI languages does Esenio support?</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="pricing" class="container pricing">
+    <div class="row">
+        <div class="small-12 column">
+            <ul class="pricing-table highlight">
+                <li class="title">Start selling tickets in less than 2 minutes</li>
+                <li class="price">{{appFee}}<span> / ticket</span></li>
+                <li class="cta-button"><a class="button" ng-href="{{signupURL}}">Get Started</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
